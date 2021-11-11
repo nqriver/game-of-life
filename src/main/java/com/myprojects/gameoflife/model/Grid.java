@@ -106,4 +106,16 @@ public class Grid {
             }
         }
     }
+
+    public void clear() {
+        for (int rowIndex = 0; rowIndex < getRowsNumber(); rowIndex++) {
+            for (int colIndex = 0; colIndex < getRowsNumber(); colIndex++) {
+                cells[rowIndex][colIndex].setAlive(false);
+            }
+        }
+    }
+
+    public void nextGeneration() {
+        updateToNextState(findNextState());
+    }
 }

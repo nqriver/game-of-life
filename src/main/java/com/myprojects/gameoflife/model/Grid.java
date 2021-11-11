@@ -1,7 +1,8 @@
 package com.myprojects.gameoflife.model;
 
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+import java.util.Random;
 
 import static com.myprojects.gameoflife.model.Utils.requirePositiveInteger;
 
@@ -65,5 +66,44 @@ public class Grid {
                 getCell(rowIndex, west),
                 getCell(north, west)
         );
+    }
+
+    private int countAliveNeighbours(int rowIndex, int colIndex) {
+        return (int) getNeighbours(rowIndex, colIndex).stream().filter(Cell::isAlive).count();
+    }
+
+
+    private boolean findNextStateOfCell(int rowIndex, int colIndex) {
+        int aliveNeighboursCount = countAliveNeighbours(rowIndex, colIndex);
+        return ((getCell(rowIndex, colIndex).isAlive() && aliveNeighboursCount == 2) ||
+                (aliveNeighboursCount == 3));
+    }
+
+
+    private boolean[][] findNextState() {
+        boolean[][] nextState = new boolean[getRowsNumber()][getColsNumber()];
+        for (int rowIndex = 0; rowIndex < getRowsNumber(); rowIndex++) {
+            for (int colIndex = 0; colIndex < getRowsNumber(); colIndex++) {
+                nextState[rowIndex][colIndex] = findNextStateOfCell(rowIndex, colIndex);
+            }
+        }
+        return nextState;
+    }
+
+    private void updateToNextState(boolean[][] nextState) {
+        for (int rowIndex = 0; rowIndex < getRowsNumber(); rowIndex++) {
+            for (int colIndex = 0; colIndex < getRowsNumber(); colIndex++) {
+                cells[rowIndex][colIndex].setAlive(nextState[rowIndex][colIndex]);
+            }
+        }
+    }
+
+    public void generateRandomly(Random random) {
+        Objects.requireNonNull(random, "Random object is null");
+        for (int rowIndex = 0; rowIndex < getRowsNumber(); rowIndex++) {
+            for (int colIndex = 0; colIndex < getRowsNumber(); colIndex++) {
+                cells[rowIndex][colIndex].setAlive(random.nextBoolean());
+            }
+        }
     }
 }

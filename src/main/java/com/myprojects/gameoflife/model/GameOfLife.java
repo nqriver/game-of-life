@@ -13,6 +13,8 @@ import javafx.util.Duration;
 
 import java.util.Random;
 
+import static java.util.Objects.requireNonNull;
+
 public class GameOfLife {
 
     private static final Random RANDOM = new Random();
@@ -52,10 +54,30 @@ public class GameOfLife {
         timeline.setCycleCount(Animation.INDEFINITE);
     }
 
+    public long getGeneration() {
+        return generation.get();
+    }
 
+    public Grid getGrid() {
+        return grid;
+    }
 
+    public ReadOnlyLongWrapper generationProperty() {
+        return generation;
+    }
 
+    public void setSpeed(GenerationSpeed speed) {
+        this.speed.set(requireNonNull(speed, "Speed is null"));
+    }
 
+    public void clear() {
+        timeline.pause();
+        grid.clear();
+        generation.set(0);
+    }
 
-
+    public void reset() {
+        clear();
+        grid.generateRandomly(RANDOM);
+    }
 }

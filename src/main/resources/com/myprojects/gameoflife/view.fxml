@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.*?>
+<AnchorPane fx:id="rootPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+            styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myprojects.gameoflife.controller.Controller">
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+    </padding>
+    <children>
+        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="980.0" spacing="10.0" AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+        <Separator maxHeight="-Infinity" maxWidth="-Infinity" orientation="VERTICAL"
+                   prefHeight="24.0" prefWidth="6.0"/>
+    </children>
+</AnchorPane>

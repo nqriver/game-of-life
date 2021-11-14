@@ -20,7 +20,7 @@ public class Cell {
         return isAliveProperty.get();
     }
 
-    public BooleanProperty IsAliveProperty () {
+    public BooleanProperty aliveProperty() {
         return isAliveProperty;
     }
 }

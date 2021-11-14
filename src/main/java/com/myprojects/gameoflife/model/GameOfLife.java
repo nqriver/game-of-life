@@ -80,4 +80,12 @@ public class GameOfLife {
         clear();
         grid.generateRandomly(RANDOM);
     }
+
+    public void play() {
+        timeline.play();
+    }
+
+    public void pause() {
+        timeline.pause();
+    }
 }

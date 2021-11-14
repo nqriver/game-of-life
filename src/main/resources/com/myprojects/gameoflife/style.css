@@ -1,3 +1,17 @@
 .background {
     -fx-background-color: #1d1d1d;
 }
+
+
+
+.button {
+    -fx-background-color: #2f6806;
+}
+
+.cell-pane {
+    -fx-background-color: derive(#1d1d1d, 20%);
+}
+
+.alive {
+    -fx-background-color: #fff;
+}

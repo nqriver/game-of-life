@@ -36,7 +36,7 @@ public class Grid {
         return (rowNumber + rowsNumber) % rowsNumber;
     }
 
-    private Cell getCell(int rowIndex, int colIndex) {
+    public Cell getCell(int rowIndex, int colIndex) {
         return cells[getWrappedRowNumber(rowIndex)][getWrappedColNumber(colIndex)];
     }
 

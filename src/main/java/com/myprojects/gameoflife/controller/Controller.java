@@ -2,6 +2,7 @@ package com.myprojects.gameoflife.controller;
 
 import com.myprojects.gameoflife.model.Cell;
 import com.myprojects.gameoflife.model.GameOfLife;
+import com.myprojects.gameoflife.model.GenerationSpeed;
 import com.myprojects.gameoflife.model.Grid;
 import javafx.beans.property.BooleanProperty;
 import javafx.collections.ObservableList;
@@ -41,10 +42,13 @@ public class Controller {
     private Button clearButton;
 
     @FXML
-    private ToggleButton slowButton;
+    private ToggleButton slowToggleButton;
 
     @FXML
-    private ToggleButton fastButton;
+    private ToggleButton mediumToggleButton;
+
+    @FXML
+    private ToggleButton fastToggleButton;
 
     @FXML
     private ToggleButton middleButton;
@@ -58,14 +62,33 @@ public class Controller {
 
     public void setGameOfLife(GameOfLife gameOfLife) {
         this.gameOfLife = requireNonNull(gameOfLife, "Game of life is null");
+        setGenerationNumberLabel();
         initGridPane();
     }
 
-    public void initPlayAndPauseToggleGroup() {
+    @FXML
+    private void initialize() {
+        initPlayAndPauseToggleGroup();
+        initSpeedToggleGroup();
+    }
+
+    private void initPlayAndPauseToggleGroup() {
         PersistentToggleGroup playAndPause = new PersistentToggleGroup();
         playAndPause.getToggles().addAll(playToggleButton, pauseToggleButton);
         pauseToggleButton.setSelected(true);
     }
+
+    private void initSpeedToggleGroup() {
+        PersistentToggleGroup speedGroup = new PersistentToggleGroup();
+        speedGroup.getToggles().addAll(slowToggleButton, mediumToggleButton, fastToggleButton);
+        mediumToggleButton.setSelected(true);
+    }
+
+    private void setGenerationNumberLabel() {
+        generationNumberLabel.textProperty().bind(gameOfLife.generationProperty().asString());
+    }
+
+
 
     public void initGridPane() {
         Grid grid = gameOfLife.getGrid();
@@ -122,7 +145,6 @@ public class Controller {
 
     public void playToggleButtonAction(ActionEvent actionEvent) {
         gameOfLife.play();
-
     }
 
     public void pauseToggleButtonAction(ActionEvent actionEvent) {
@@ -131,10 +153,24 @@ public class Controller {
 
     public void resetButtonAction(ActionEvent actionEvent) {
         gameOfLife.reset();
+        pauseToggleButton.setSelected(true);
     }
 
     public void clearButtonAction(ActionEvent actionEvent) {
         gameOfLife.clear();
+        pauseToggleButton.setSelected(true);
     }
 
+    public void slowToggleButtonAction(ActionEvent actionEvent) {
+        gameOfLife.setSpeed(GenerationSpeed.SLOW);
+    }
+
+    public void mediumToggleButtonAction(ActionEvent actionEvent) {
+        gameOfLife.setSpeed(GenerationSpeed.MEDIUM);
+
+    }
+
+    public void fastToggleButtonAction(ActionEvent actionEvent) {
+        gameOfLife.setSpeed(GenerationSpeed.FAST);
+    }
 }

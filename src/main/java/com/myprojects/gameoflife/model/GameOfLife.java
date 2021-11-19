@@ -18,7 +18,7 @@ import static java.util.Objects.requireNonNull;
 public class GameOfLife {
 
     private static final Random RANDOM = new Random();
-    private final ObjectProperty<GenerationSpeed> speed = new SimpleObjectProperty<>(GenerationSpeed.SLOW);
+    private final ObjectProperty<GenerationSpeed> speed = new SimpleObjectProperty<>(GenerationSpeed.FAST);
     private final ReadOnlyLongWrapper generation = new ReadOnlyLongWrapper();
     private final Grid grid;
     private Timeline timeline;

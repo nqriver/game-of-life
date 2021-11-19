@@ -13,20 +13,42 @@
         <HBox alignment="CENTER" prefHeight="24.0" prefWidth="980.0" spacing="10.0" AnchorPane.leftAnchor="0.0"
               AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Separator halignment="LEFT" orientation="VERTICAL" prefHeight="200.0"/>
+                <Separator halignment="LEFT" orientation="VERTICAL" prefHeight="24.0"/>
                 <ToggleButton fx:id="playToggleButton" maxHeight="-Infinity" maxWidth="-Infinity"
                               mnemonicParsing="false" onAction="#playToggleButtonAction" prefHeight="24.0"
-                              prefWidth="62.0" styleClass="button" text="Play"/>
+                              prefWidth="80.0" styleClass="button" text="Play"/>
                 <ToggleButton fx:id="pauseToggleButton" maxHeight="-Infinity" maxWidth="Infinity"
                               mnemonicParsing="false" onAction="#pauseToggleButtonAction" prefHeight="24.0"
-                              prefWidth="62.0" styleClass="button" text="Pause"/>
+                              prefWidth="80.0" styleClass="button" text="Pause"/>
                 <Button fx:id="resetButton" maxHeight="-Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                        onAction="#resetButtonAction" prefHeight="24.0" prefWidth="62.0" styleClass="button"
+                        onAction="#resetButtonAction" prefHeight="24.0" prefWidth="80.0" styleClass="button"
                         text="Reset"/>
                 <Button fx:id="clearButton" maxHeight="-Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                        onAction="#clearButtonAction" prefHeight="24.0" prefWidth="62.0" styleClass="button"
+                        onAction="#clearButtonAction" prefHeight="24.0" prefWidth="80.0" styleClass="button"
                         text="Clear"/>
-                <Separator orientation="VERTICAL" prefHeight="200.0"/>
+                <Separator orientation="VERTICAL" prefHeight="24.0"/>
+                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="390.0" prefHeight="24.0" spacing="10.0">
+                    <children>
+                        <Label maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="14.0" prefWidth="52.0"
+                               text="Speed"/>
+                        <ToggleButton fx:id="slowToggleButton" maxHeight="-Infinity" maxWidth="-Infinity"
+                                      mnemonicParsing="false" onAction="#slowToggleButtonAction" prefHeight="24.0"
+                                      prefWidth="80.0" styleClass="button" text="Slow"/>
+                        <ToggleButton fx:id="mediumToggleButton" maxHeight="-Infinity" maxWidth="-Infinity"
+                                      mnemonicParsing="false" onAction="#mediumToggleButtonAction" prefHeight="24.0"
+                                      prefWidth="80.0" styleClass="button" text="Medium"/>
+                        <ToggleButton fx:id="fastToggleButton" maxHeight="-Infinity" maxWidth="-Infinity"
+                                      mnemonicParsing="false" onAction="#fastToggleButtonAction" prefHeight="24.0"
+                                      prefWidth="80.0" styleClass="button" text="Fast"/>
+                    </children>
+                </HBox>
+                <Separator maxHeight="-Infinity" maxWidth="-Infinity" orientation="VERTICAL" prefHeight="24.0"
+                           prefWidth="6.0"/>
+                <Label maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="100.0"
+                       text="Generation"/>
+                <Label fx:id="generationNumberLabel" alignment="CENTER_RIGHT" contentDisplay="TEXT_ONLY"
+                       maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="99.0"/>
+                <Separator halignment="LEFT" orientation="VERTICAL" prefHeight="24.0"/>
             </children>
         </HBox>
         <GridPane fx:id="gridPane" alignment="CENTER" hgap="1.0" maxHeight="-Infinity" maxWidth="-Infinity"

@@ -8,13 +8,11 @@
 }
 
 
-
 .button {
+    -fx-font-family: 'abril';
     -fx-background-color: #2f6806;
     -fx-text-fill: rgba(250, 247, 247, 0.99);
-    -fx-font-family: 'abril';
 }
-
 .cell-pane {
     -fx-background-color: derive(#1d1d1d, 20%);
 }
